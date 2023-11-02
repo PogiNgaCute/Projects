@@ -1,0 +1,282 @@
+    <!DOCTYPE html>
+<head>
+    <title>Temp Crud Operation</title>
+    
+    <script type="text/javascript" src="javascript/js.js"></script>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      
+   
+</head>
+
+<body class="bg-dark">
+    
+    <div class="container mt-3">
+    <!-- Nav pills -->
+<ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="pill" href="#home">Student Registration</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="pill" href="#menu1">Student Enrollment</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="pill" href="#menu2">Enrolled Students</a>
+    </li>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane container active" id="home">
+        <div class="container mt-3">
+            <form autocomplete="off" onsubmit="onFormSubmit()">
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" name="productCode" id="productCode"class="form-control" placeholder=" First Name" autofocus>
+                    <label for="productCode">First Name</label>
+                </div>
+                <div class="form-floating mt-3 mb-3" >
+                    <input type="text" name="product" class="form-control" placeholder=" Last Name" id="product">
+                    <label for="product">Last Name</label>
+                </div>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" name="qty" class="form-control" placeholder=" Middle Name" id="qty">
+                    <label for="qty">Middle Name</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" name="perPrice" class="form-control" placeholder="Address" id="perPrice">
+                    <label for="perPrice">Address</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" name="email" class="form-control" placeholder="Email" id="email">
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="form_action--button">
+                    <button  class="btn btn-danger" type="submit" value="Submit">Submit</button>
+                    <button class="btn btn-danger" type="reset" value="Reset">Reset</button>
+                </div>
+
+            </form>
+        </div>
+        
+    </div>
+
+    <!------MENU 2-->
+    <div class="tab-pane container fade" id="menu1">
+        <div class="container mt-3">
+            <table class="list table table-dark table-striped" id="storeList">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>MIddle Name</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+<!-- The Modal -->
+<div class="modal" id="enroll">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Student Info  </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form >
+            <div class="form-floating mb-3 mt-3" >
+                <input type="text" name="Id" id="Id"class="form-control" placeholder=" First Name" >
+                <label for="Id">ID Number</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" name="sl_productCode" id="sl_productCode"class="form-control" placeholder=" First Name" disabled>
+                <label for="sl_productCode">First Name</label>
+            </div>
+            <div class="form-floating mt-3 mb-3" >
+                <input type="text" name="sl_product" class="form-control" placeholder=" Last Name" id="sl_product" disabled>
+                <label for="sl_product">Last Name</label>
+            </div>
+            <div class="form-floating mt-3 mb-3">
+                <input type="text" name="sl_qty" class="form-control" placeholder=" Middle Name" id="sl_qty" disabled>
+                <label for="sl_qty">Middle Name</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" name="sl_perPrice" class="form-control" placeholder="Address" id="sl_perPrice" disabled>
+                <label for="sl_perPrice">Address</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" name="sl_email" class="form-control" placeholder="Email" id="sl_email" disabled>
+                <label for="sl_email">Email</label>
+            </div>
+            <div>
+                <select id="Course" class="form-select" aria-label="Seclect Course">
+                <option selected disabled>Select Course</option>
+                <option value="BSIT">BSIT</option>
+                <option value="BSED">BSED</option>
+                <option value="BSTH">BSTM</option>
+                <option value="BSHM">BSHM</option>
+                </select>
+            </div>
+            
+            <div class="fs-4">
+                SUBJECTS
+            </div>
+      
+           
+          </form>
+
+                 
+<table id="myTable">
+    <tr>
+      <td>
+         <div class="form-floating">
+        <input class="form-control" type="text" name="sl_Subject" placeholder="Subject Number" id="sl_Subject">
+        <label for="sl_Subject">Subject</label>
+    </div>
+    </td>
+
+      <td> 
+        <div class="form-floating">
+        <input class="form-control" type="text" name="sl_Description" placeholder="Subject Number" id="sl_Description">
+        <label for="sl_Description">Description</label> 
+    </td>
+
+    <td>
+        <div class="form-floating">
+        <input class="form-control" type="text" name="sl_Unit" placeholder="Unit" id="sl_Unit">
+        <label for="sl_Unit">Unit</label>
+    </td>
+    </tr>
+    
+    
+  </table>
+        </div>
+  
+        <!-- Modal footer Padulong Third Table-->
+        <div class="modal-footer justify-content-between" >
+            <button  onclick="myFunction()"  class="btn btn-danger" >Add Row</button>
+             <button type="save" class="btn btn-danger" data-bs-dismiss="modal" value="Save"  onclick="willSubmit()" autocomplete="off">Save</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+  
+
+    <!-----MENU 3------------------------------------------------------------------------------------------------------------------------------>
+    <div class="tab-pane container fade" id="menu2">
+        
+        <div class="container mt-3">
+            <table class="list table table-dark table-striped" id="newData">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th >First Name</th>
+                        <th>Last Name</th>
+                        <th>MIddle Name</th>
+                        <th>Address</th>
+                        <th>Course</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+
+<!-- The Modal -->
+<div class="modal" id="study">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Student Info</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body" id="study">
+            <form id="study">
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" name="sl_Id" id="sl_Id"class="form-control" placeholder=" First Name" disabled>
+                <label for="sl_Id">ID Number</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" name="sl_productCode_two" id="sl_productCode_two"class="form-control" placeholder=" First Name" disabled>
+                <label for="sl_productCode_two">First Name</label>
+            </div>
+            <div class="form-floating mt-3 mb-3" >
+                <input type="text" name="sl_product_two" class="form-control" placeholder=" Last Name" id="sl_product_two" disabled>
+                <label for="sl_product_two">Last Name</label>
+            </div>
+            <div class="form-floating mt-3 mb-3">
+                <input type="text" name="sl_qty_two" class="form-control" placeholder=" Middle Name" id="sl_qty_two" disabled>
+                <label for="sl_qty_two">Middle Name</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" name="sl_perPrice_two" class="form-control" placeholder="Address" id="sl_perPrice_two" disabled>
+                <label for="sl_perPrice_two">Address</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" name="sl_Course" id="sl_Course"class="form-control" placeholder=" First Name" disabled>
+                <label for="sl_Course">Course</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" name="sl_email_two" id="sl_email_two"class="form-control" placeholder=" First Name" disabled>
+                <label for="sl_email_two">Email</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input class="form-control" type="text" name="sl_Subject_two" placeholder="Subject Number" id="sl_Subject_two" disabled>
+                <label for="sl_Subject_two">Subject Number</label>
+            </div>
+
+            <div class="form-floating mb-3 mt-3">
+                <input class="form-control" type="text" name="sl_Description_two" placeholder="Subject Number" id="sl_Description_two" disabled>
+                <label for="sl_Description_two">Description</label> 
+            </div>
+
+            <div class="form-floating mb-3 mt-3">
+                <input class="form-control" type="text" name="sl_Unit_two" placeholder="Unit" id="sl_Unit_two" disabled>
+                <label for="sl_Unit_two">Unit</label>
+            </div>
+            </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            
+            <button class="btn btn-danger" data-bs-dismiss="modal" value="Close">Close</button>
+</div>
+
+      </div>
+    </div>
+
+
+    </div>
+  </div>
+</div>  
+            
+            
+    
+</body>
+</html>
